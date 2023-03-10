@@ -5,10 +5,30 @@ part 'navigator_event.dart';
 part 'navigator_state.dart';
 
 class NavigatorBloc extends Bloc<NavigatorEvent, NavigatorState> {
-  NavigatorBloc() : super(NavigatorInitial()) {
-    on<NavigatorEvent>(
+  NavigatorBloc() : super(LandingScreenState()) {
+    on<LandingScreenEvent>(
       (event, emit) {
-        // TODO: implement event handler
+        emit(LandingScreenState());
+      },
+    );
+    on<LoginScreenEvent>(
+      (event, emit) {
+        emit(LoginScreenState());
+      },
+    );
+    on<LoadingScreenEvent>(
+      (event, emit) {
+        emit(LoadingScreenState());
+      },
+    );
+    on<HomeScreenEvent>(
+      (event, emit) {
+        emit(HomeScreenState());
+      },
+    );
+    on<LogoutScreenEvent>(
+      (event, emit) {
+        emit(LogoutScreenState());
       },
     );
   }
